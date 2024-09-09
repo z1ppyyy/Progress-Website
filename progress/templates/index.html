@@ -6,7 +6,13 @@
   <title>Progress</title>
 </head>
 <body>
-  <h1>Progress Website👨‍💻</h1>
-  <p>Soon...</p>
+  <h1><a href="/" style="text-decoration: none; color: #000;">Progress Website👨‍💻</a></h1>
+  <a href="/progress">Post something</a>
+
+  {% if time and progress and spent %}
+    <h2>{{time}} Progress</h2>
+    <p>{{progress}}</p>
+    <h3>Time spent: {{spent}}</h3>
+  {% endif %}
 </body>
 </html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Post Creation</title>
+</head>
+<body>
+  <h1>Enter your progress</h1>
+  
+  <form method="post" action="progress">
+    {% csrf_token %}
+    <p>Enter your today's progress</p>
+    <textarea type="text" name="progress" rows="20" cols="50" placeholder="Enter your progress here"></textarea>
+    <p>How many hours did you spent?</p>
+    <input type="number" name="spent" placeholder="e.g. 6"  />
+    <input type="submit" />
+  </form>
+</body>
+</html>
