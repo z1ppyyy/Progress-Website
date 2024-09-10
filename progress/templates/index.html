@@ -9,10 +9,10 @@
   <h1><a href="/" style="text-decoration: none; color: #000;">Progress Website👨‍💻</a></h1>
   <a href="/progress">Post something</a>
 
-  {% if time and progress and spent %}
-    <h2>{{time}} Progress</h2>
-    <p>{{progress}}</p>
-    <h3>Time spent: {{spent}}</h3>
-  {% endif %}
+  {% for post in content %}
+    <h2>{{post.title}} Progress</h2>
+    <p>{{post.progress}}</p>
+    <h3>Time spent: {{post.spent}}</h3>
+  {% endfor %}
 </body>
 </html>
