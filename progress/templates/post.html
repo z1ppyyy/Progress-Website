@@ -11,9 +11,9 @@
   <form method="post" action="progress">
     {% csrf_token %}
     <p>Enter your today's progress</p>
-    <textarea type="text" name="progress" rows="20" cols="50" placeholder="Enter your progress here"></textarea>
+    <textarea type="text" maxlength="900" name="progress" rows="20" cols="50" placeholder="Enter your progress here"></textarea>
     <p>How many hours did you spent?</p>
-    <input type="number" name="spent" placeholder="e.g. 6"  />
+    <input type="number" maxlength="2" name="spent" placeholder="e.g. 6"  />
     <input type="submit" />
   </form>
 </body>
