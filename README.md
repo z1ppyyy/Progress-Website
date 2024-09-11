@@ -9,23 +9,23 @@ If you are a collaborator of the Progress-Website repository, here's how you sho
 ## Part 1
 1.1 Make sure you're on the correct branch (master):
   ```shell
-    git checkout master
+  git checkout master
   ```
 
 1.2 Update your branch:
   ```shell
-    git pull origin master
+  git pull origin master
   ```
 
 1.3 Create a new branch for your feature:
   ```shell
-    git checkout -b feature-branch-name
+  git checkout -b feature-branch-name
   ```
   Replace feature-branch-name with a descriptive name for your feature.
 
 1.4 Push the new branch to the remote repository:
   ```shell
-    git push -u origin feature-branch-name
+  git push -u origin feature-branch-name
   ```
   Now, you have a new branch where you can start working on your feature independently of the main branch.
 
@@ -45,8 +45,8 @@ Once you've finished the first part and your feature is ready, you can proceed t
 
 2.4 Delete the feature branch (optional but recommended):
   ```shell
-    git branch -d feature-branch-name
-    git push origin --delete feature-branch-name
+  git branch -d feature-branch-name
+  git push origin --delete feature-branch-name
   ```
   This keeps the branches organized
 
