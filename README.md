@@ -2,11 +2,21 @@
 
 A website used to track your daily programming progress.
 
-# [COLLABORATORS] Guide for implementing features
+# Table of contents
 
+• [Contributing Guide](https://github.com/z1ppyyy/Progress-Website#contributing)
+
+• [Release Date](https://github.com/z1ppyyy/Progress-Website#release-date)
+
+• [Made By](https://github.com/z1ppyyy/Progress-Website#made-by)
+
+# Contributing
+To contribute to the project, you need to follow these instructions.
+
+## Collaborators
 If you are a collaborator of the Progress-Website repository, here's how you should implement new features:
 
-## Part 1
+### Part 1
 1.1 Make sure you're on the correct branch (master):
   ```shell
   git checkout master
@@ -50,10 +60,13 @@ Once you've finished the first part and your feature is ready, you can proceed t
   ```
   This keeps the branches organized
 
-# Release date
+## Non-Collaborators
+If you are not marked as collaborator of this project, here are the steps for you:
+
+# Release Date
 
 The release is expected by the end of September 🏆
 
-# Made by
+# Made By
 
 Made by [@pinkozz](https://github.com/pinkozz) and [@z1ppyyy](https://github.com/z1ppyyy)
