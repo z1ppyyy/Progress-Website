@@ -4,11 +4,11 @@ A website used to track your daily programming progress.
 
 # Table of contents
 
-• [Contributing Guide](https://github.com/z1ppyyy/Progress-Website#contributing)
+• [Contributing Guide](https://github.com/z1ppyyy/Progress-Website?tab=readme-ov-file#contributing)
 
-• [Release Date](https://github.com/z1ppyyy/Progress-Website#release-date)
+• [Release Date](https://github.com/z1ppyyy/Progress-Website?tab=readme-ov-file#contributing)
 
-• [Made By](https://github.com/z1ppyyy/Progress-Website#made-by)
+• [Made By](https://github.com/z1ppyyy/Progress-Website?tab=readme-ov-file#contributing)
 
 # Contributing
 To contribute to the project, you need to follow these instructions.
