@@ -110,7 +110,7 @@ To keep your fork up-to-date with the original repository, follow these steps:
 
 #### 3.1 Add the original repository as an upstream remote:
   ```shell
-  git remote add upstream https://github.com/original-owner/Progress-Website.git
+  git remote add upstream https://github.com/z1ppyyy/Progress-Website.git
   ```
 Replace original-owner with the GitHub username of the repository owner.
 
