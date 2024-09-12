@@ -12,7 +12,37 @@
   {% for post in content %}
     <h2>{{post.title}} Progress</h2>
     <p>{{post.progress}}</p>
-    <h3>Time spent: {{post.spent}}</h3>
+
+    {% if post.hours == 0 %}
+      {% if post.minutes > 1 %}
+          <h3>Time spent: {{post.minutes}} minutes</h3>
+      {% else %}
+          <h3>Time spent: {{post.minutes}} minute</h3>
+      {% endif %}
+    {% elif post.minutes == 0 %}
+       {% if post.hours > 1 %}
+            <h3>Time spent: {{post.hours}} hours</h3>
+        {% else %}
+            <h3>Time spent: {{post.hours}} hour</h3>
+        {% endif %}
+    {% elif post.hours > 0 and post.minutes > 0%}
+        {% if post.hours > 1 %}
+          {% if post.minutes > 1 %}
+            <h3>Time spent: {{post.hours}} hours and {{post.minutes}} minutes</h3>  
+          {% else %}  
+            <h3>Time spent: {{post.hours}} hours and {{post.minutes}} minute</h3>  
+          {% endif %}
+        {% else %}  
+            {% if post.minutes > 1 %}
+                <h3>Time spent: {{post.hours}} hour and {{post.minutes}} minutes</h3>  
+            {% else %}  
+                <h3>Time spent: {{post.hours}} hour and {{post.minutes}} minute</h3>  
+            {% endif %}
+        {% endif %}
+      {% else %}  
+          <h3>Time spent: {{post.hours}} hour{{post.hour|pluralize}} and {{post.minutes}} minute{{post.minutes|pluralize}}</h3>    
+      {% endif %}
   {% endfor %}
+  
 </body>
 </html>
