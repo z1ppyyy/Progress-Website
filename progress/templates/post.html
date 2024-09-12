@@ -12,9 +12,14 @@
     {% csrf_token %}
     <p>Enter your today's progress</p>
     <textarea type="text" maxlength="900" name="progress" rows="20" cols="50" placeholder="Enter your progress here"></textarea>
-    <p>How many hours did you spent?</p>
-    <input type="number" maxlength="2" name="spent" placeholder="e.g. 6"  />
+    <p>How much time did you spent?</p>
+    <label for="hours">Hours</label>
+    <input type="number" maxlength="2" name="hours" placeholder="e.g. 4"  />
+    <label for="minutes">Minutes</label>
+    <input type="number" maxlength="2" name="minutes" placeholder="e.g. 30"  />
     <input type="submit" />
+    <a href="/"><input type="button" value="Cancel"/></a>
+    
   </form>
 </body>
 </html>
