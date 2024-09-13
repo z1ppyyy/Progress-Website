@@ -14,14 +14,15 @@ def progress(request):
         hours = request.POST['hours']
         minutes = request.POST['minutes']
 
-        if hours is None:
-            post = Post(progress=progress, minutes=minutes)
-            post.save()
-            return redirect("index")
-        elif minutes is None:
-            post = Post(progress=progress, hours=hours)
-            post.save()
-            return redirect("index")
+        if len(hours) < 1:
+            error = "Please enter hours"
+            return render(request, "post.html", {"error": error})
+        elif len(progress) < 10:
+            error = "The length of progress should be at least 10 characters."
+            return render(request, "post.html", {"error": error})
+        elif int(hours) > 23 or int(hours) < 1 or int(minutes) < 0 or int(minutes) > 59:
+            error = "Please enter valid time spent"
+            return render(request, "post.html", {"error": error})
         else:
             post = Post(progress=progress, hours=hours, minutes=minutes)
             post.save()
