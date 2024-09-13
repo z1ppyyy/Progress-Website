@@ -10,9 +10,9 @@ class Post(models.Model):
     title = current_date
     progress = models.CharField(max_length=900)
     hours = models.IntegerField(
-        validators=[MinValueValidator(0), MaxValueValidator(24)], default=0
+        validators=[MinValueValidator(0), MaxValueValidator(24)]
     )
     minutes = models.IntegerField(
-        validators=[MinValueValidator(0), MaxValueValidator(60)], default=0
+        validators=[MinValueValidator(0), MaxValueValidator(60)]
     )
     

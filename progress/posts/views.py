@@ -14,13 +14,11 @@ def progress(request):
         hours = request.POST['hours']
         minutes = request.POST['minutes']
 
-        if hours is None:
-            post = Post(progress=progress, minutes=minutes)
-            post.save()
+        if len(hours) < 1:
             return redirect("index")
-        elif minutes is None:
-            post = Post(progress=progress, hours=hours)
-            post.save()
+        elif len(progress) < 10:
+            return redirect("index")
+        elif int(hours) > 23 or int(hours) < 1 or int(minutes) < 0 or int(minutes) > 59:
             return redirect("index")
         else:
             post = Post(progress=progress, hours=hours, minutes=minutes)
