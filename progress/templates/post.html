@@ -20,5 +20,8 @@
     <input type="submit" />
     <a href="/"><input type="button" value="Cancel"/></a>
   </form>
+  {% if error %}
+    <p style="color: rgb(238, 121, 121); font-weight: bold;">{{error}}</p>
+  {% endif %}
 </body>
 </html>

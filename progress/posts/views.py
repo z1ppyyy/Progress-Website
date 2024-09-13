@@ -15,11 +15,14 @@ def progress(request):
         minutes = request.POST['minutes']
 
         if len(hours) < 1:
-            return redirect("index")
+            error = "Please enter hours"
+            return render(request, "post.html", {"error": error})
         elif len(progress) < 10:
-            return redirect("index")
+            error = "The length of progress should be at least 10 characters."
+            return render(request, "post.html", {"error": error})
         elif int(hours) > 23 or int(hours) < 1 or int(minutes) < 0 or int(minutes) > 59:
-            return redirect("index")
+            error = "Please enter valid time spent"
+            return render(request, "post.html", {"error": error})
         else:
             post = Post(progress=progress, hours=hours, minutes=minutes)
             post.save()
