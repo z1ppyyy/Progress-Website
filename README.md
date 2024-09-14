@@ -2,7 +2,8 @@
 A website used to track your daily programming progress.
 
 # Table of contents
-* [Contributing Guide](https://github.com/z1ppyyy/Progress-Website?tab=readme-ov-file#contributing)
+* [Contributing Guide for Collaborators](https://github.com/z1ppyyy/Progress-Website/tree/users?tab=readme-ov-file#collaborators)
+* [Contributing Guide for Non-Collaborators](https://github.com/z1ppyyy/Progress-Website/tree/users?tab=readme-ov-file#non-collaborators)
 * [Release Date](https://github.com/z1ppyyy/Progress-Website?tab=readme-ov-file#release-date)
 * [Made By](https://github.com/z1ppyyy/Progress-Website?tab=readme-ov-file#made-by)
 
