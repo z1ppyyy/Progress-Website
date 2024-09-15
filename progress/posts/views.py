@@ -6,7 +6,8 @@ from .models import Post
 @login_required(login_url='/login')
 def index(request):
     """Show main page"""
-    content = Post.objects.all()
+    content = list(Post.objects.all())[::-1]
+    print(content)
     return render(request, "index.html", {"content": content})
 
 def progress(request):

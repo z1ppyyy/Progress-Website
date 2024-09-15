@@ -11,7 +11,7 @@
   <a href="/logout">Log Out</a>
 
   {% for post in content %}
-    <h2>{{post.title}}</h2>
+    <h2>{{ post.user }}'s {{post.title}}</h2>
     <p>{{post.progress}}</p>
 
     <h3>
@@ -23,7 +23,6 @@
         {{ post.minutes }} minute{{ post.minutes|pluralize }}
       {% endif %}
     </h3>
-    {{ post.user.username }}
   {% endfor %}
   
 </body>
