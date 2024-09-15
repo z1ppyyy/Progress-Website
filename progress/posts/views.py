@@ -6,7 +6,8 @@ from .models import Post
 @login_required(login_url='/login')
 def index(request):
     """Show main page"""
-    content = Post.objects.all()
+    content = list(Post.objects.all())[::-1]
+    print(content)
     return render(request, "index.html", {"content": content})
 
 def progress(request):
@@ -26,7 +27,12 @@ def progress(request):
             error = "Please enter valid time spent"
             return render(request, "post.html", {"error": error})
         else:
-            post = Post(progress=progress, hours=hours, minutes=minutes)
+            post = Post(
+                user=request.user, 
+                progress=progress, 
+                hours=hours, 
+                minutes=minutes
+            )
             post.save()
             return redirect("index")
         
