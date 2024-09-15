@@ -26,7 +26,12 @@ def progress(request):
             error = "Please enter valid time spent"
             return render(request, "post.html", {"error": error})
         else:
-            post = Post(progress=progress, hours=hours, minutes=minutes)
+            post = Post(
+                user=request.user, 
+                progress=progress, 
+                hours=hours, 
+                minutes=minutes
+            )
             post.save()
             return redirect("index")
         

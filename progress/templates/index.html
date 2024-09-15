@@ -11,7 +11,8 @@
   <a href="/logout">Log Out</a>
 
   {% for post in content %}
-    <h2>{{post.title}} Progress</h2>
+    <p><strong>{{ post.user.username }}</strong> posted:</p>
+    <h2>{{post.title}}</h2>
     <p>{{post.progress}}</p>
 
     {% if post.hours == 0 %}
