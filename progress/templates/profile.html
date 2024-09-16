@@ -1,12 +1,18 @@
 {% extends 'base.html' %}
 
 {% block title %}
-  Progress Website
+  {{profile.user}}'s Profile
 {% endblock %}
 
+
 {% block body %}
-  {% for post in content %}
-    <h2><a href="/profiles/{{ post.user }}">{{ post.user }}</a>'s {{post.title}}</h2>
+  <h1>{{ profile.user }}</h1>
+  <img src="{{ profile.image.url }}" style="height: 200px; width: 200px; border: 1px solid black; border-radius: 50%;"/>
+  <p>{{ profile.user.email }}</p>
+  <p>Member since: {{ profile.user.date_joined }}</p>
+
+  {% for post in posts %}
+    <h2>{{ post.user }}'s {{post.title}}</h2>
     <p>{{post.progress}}</p>
 
     <h3>
