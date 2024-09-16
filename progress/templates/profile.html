@@ -1,3 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  {{profile.user}}'s Profile
+{% endblock %}
+
+
+{% block body %}
+
 <h1>{{ profile.user }}</h1>
 <img src="{{ profile.image.url }}" style="height: 200px; width: 200px; border: 1px solid black; border-radius: 50%;"/>
 <p>{{ profile.user.email }}</p>
@@ -29,3 +38,4 @@
     {% endfor %}
 </div>
 </div>
+{% endblock %}

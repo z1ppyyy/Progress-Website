@@ -1,43 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Progress</title>
-</head>
-<body>
-  <h1><a href="/" style="text-decoration: none; color: #000;">Progress Website 👨‍💻</a></h1>
-  <a href="/progress">Post something</a>
-  <a href="/profile/{{user.username}}">Your profile</a>
-  <a href="/logout">Log Out</a>
+{% extends 'base.html' %}
 
-  <div class="row">
-    <div class="leftcolumn">
+{% block title %}
+  Progress Website
+{% endblock %}
 
-      {% for post in content %}
-      <div class="card">
-        <h2>
-          <a href="/profile/{{ post.user }}" style="text-decoration: none; color: green;">{{ post.user }}</a>'s 
-          <a href="/post/{{post.id}}" style="text-decoration: none; color: black;">{{ post.title }}
-        </h2>
-        <p>{{post.progress}}</p>
+{% block body %}
 
-          <h3>
-            Time spent:
-            {% if post.hours > 0 %}
-              {{ post.hours }} hour{{ post.hours|pluralize }}
-              {% if post.minutes > 0 %} and {{ post.minutes }} minute{{ post.minutes|pluralize }}{% endif %}
-            {% else %}
-              {{ post.minutes }} minute{{ post.minutes|pluralize }}
-            {% endif %}
-          </h3>
+<div class="row">
+  <div class="leftcolumn">
 
-          </a>
-        </div>
-      {% endfor %}
-  </div>
+    {% for post in content %}
+    <div class="card">
+      <h2>
+        <a href="/profile/{{ post.user }}" style="text-decoration: none; color: green;">{{ post.user }}</a>'s 
+        <a href="/post/{{post.id}}" style="text-decoration: none; color: black;">{{ post.title }}
+      </h2>
+      <p>{{post.progress}}</p>
+
+        <h3>
+          Time spent:
+          {% if post.hours > 0 %}
+            {{ post.hours }} hour{{ post.hours|pluralize }}
+            {% if post.minutes > 0 %} and {{ post.minutes }} minute{{ post.minutes|pluralize }}{% endif %}
+          {% else %}
+            {{ post.minutes }} minute{{ post.minutes|pluralize }}
+          {% endif %}
+        </h3>
+
+        </a>
+      </div>
+    {% endfor %}
 </div>
-
-  
-</body>
-</html>
+</div>
+{% endblock %}

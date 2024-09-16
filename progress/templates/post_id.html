@@ -1,3 +1,11 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Post
+{% endblock %}
+
+{% block body %}
+
 <div>
     <h2><a href="/profile/{{ posts.user }}">{{ posts.user }}</a>'s {{ posts.title }}</h2>
     <p>{{posts.progress}}</p>
@@ -12,3 +20,4 @@
     {% endif %}
     </h3>
 </div>
+{% endblock %}
