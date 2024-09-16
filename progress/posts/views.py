@@ -7,7 +7,6 @@ from .models import Post
 def index(request):
     """Show main page"""
     content = list(Post.objects.all())[::-1]
-    print(content)
     return render(request, "index.html", {"content": content})
 
 def progress(request):

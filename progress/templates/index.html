@@ -8,10 +8,11 @@
 <body>
   <h1><a href="/" style="text-decoration: none; color: #000;">Progress Website👨‍💻</a></h1>
   <a href="/progress">Post something</a>
+  <a href="/profile/{{user.username}}">Your profile</a>
   <a href="/logout">Log Out</a>
 
   {% for post in content %}
-    <h2>{{ post.user }}'s {{post.title}}</h2>
+    <h2><a href="/profile/{{ post.user }}">{{ post.user }}</a>'s {{post.title}}</h2>
     <p>{{post.progress}}</p>
 
     <h3>
