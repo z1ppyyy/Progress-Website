@@ -6,7 +6,7 @@
 
 {% block body %}
   {% for post in content %}
-    <h2><a href="/profiles/{{ post.user }}">{{ post.user }}</a>'s {{post.title}}</h2>
+    <h2><a href="/profile/{{ post.user }}">{{ post.user }}</a>'s {{post.title}}</h2>
     <p>{{post.progress}}</p>
 
     <h3>
