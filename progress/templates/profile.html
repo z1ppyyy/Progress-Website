@@ -3,17 +3,29 @@
 <p>{{ profile.user.email }}</p>
 <p>Member since: {{ profile.user.date_joined }}</p>
 
-{% for post in posts %}
-    <h2>{{ post.user }}'s {{post.title}}</h2>
-    <p>{{post.progress}}</p>
+<div class="row">
+  <div class="leftcolumn">
 
-    <h3>
-      Time spent:
-      {% if post.hours > 0 %}
-        {{ post.hours }} hour{{ post.hours|pluralize }}
-        {% if post.minutes > 0 %} and {{ post.minutes }} minute{{ post.minutes|pluralize }}{% endif %}
-      {% else %}
-        {{ post.minutes }} minute{{ post.minutes|pluralize }}
-      {% endif %}
-    </h3>
-  {% endfor %}
+    {% for post in posts reversed %}
+    <div class="card">
+      <h2>
+        <a href="/profile/{{ post.user }}" style="text-decoration: none; color: green;">{{ post.user }}</a>'s 
+        <a href="/post/{{post.id}}" style="text-decoration: none; color: black;">{{ post.title }}
+      </h2>
+      <p>{{post.progress}}</p>
+
+        <h3>
+          Time spent:
+          {% if post.hours > 0 %}
+            {{ post.hours }} hour{{ post.hours|pluralize }}
+            {% if post.minutes > 0 %} and {{ post.minutes }} minute{{ post.minutes|pluralize }}{% endif %}
+          {% else %}
+            {{ post.minutes }} minute{{ post.minutes|pluralize }}
+          {% endif %}
+        </h3>
+
+        </a>
+      </div>
+    {% endfor %}
+</div>
+</div>

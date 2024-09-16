@@ -6,25 +6,38 @@
   <title>Progress</title>
 </head>
 <body>
-  <h1><a href="/" style="text-decoration: none; color: #000;">Progress Website👨‍💻</a></h1>
+  <h1><a href="/" style="text-decoration: none; color: #000;">Progress Website 👨‍💻</a></h1>
   <a href="/progress">Post something</a>
   <a href="/profile/{{user.username}}">Your profile</a>
   <a href="/logout">Log Out</a>
 
-  {% for post in content %}
-    <h2><a href="/profile/{{ post.user }}">{{ post.user }}</a>'s {{post.title}}</h2>
-    <p>{{post.progress}}</p>
+  <div class="row">
+    <div class="leftcolumn">
 
-    <h3>
-      Time spent:
-      {% if post.hours > 0 %}
-        {{ post.hours }} hour{{ post.hours|pluralize }}
-        {% if post.minutes > 0 %} and {{ post.minutes }} minute{{ post.minutes|pluralize }}{% endif %}
-      {% else %}
-        {{ post.minutes }} minute{{ post.minutes|pluralize }}
-      {% endif %}
-    </h3>
-  {% endfor %}
+      {% for post in content %}
+      <div class="card">
+        <h2>
+          <a href="/profile/{{ post.user }}" style="text-decoration: none; color: green;">{{ post.user }}</a>'s 
+          <a href="/post/{{post.id}}" style="text-decoration: none; color: black;">{{ post.title }}
+        </h2>
+        <p>{{post.progress}}</p>
+
+          <h3>
+            Time spent:
+            {% if post.hours > 0 %}
+              {{ post.hours }} hour{{ post.hours|pluralize }}
+              {% if post.minutes > 0 %} and {{ post.minutes }} minute{{ post.minutes|pluralize }}{% endif %}
+            {% else %}
+              {{ post.minutes }} minute{{ post.minutes|pluralize }}
+            {% endif %}
+          </h3>
+
+          </a>
+        </div>
+      {% endfor %}
+  </div>
+</div>
+
   
 </body>
 </html>
