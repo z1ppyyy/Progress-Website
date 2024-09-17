@@ -1,16 +1,17 @@
+<title>Login</title>
 
 <h1>Log in into your account</h1>
 <p>
-    Don't have an account?
-    <a href="/register">Sign Up</a>
+	Don't have an account?
+	<a href="/register">Sign Up</a>
 </p>
 <form action="login" method="post">
-    {% csrf_token %}
-    <p>Username:</p>
-    <input type="text" name="username">
+	{% csrf_token %}
+	<p>Username:</p>
+	<input type="text" name="username">
 
-    <p>Password</p>
-    <input type="password" name="password"><br>
+	<p>Password</p>
+	<input type="password" name="password"><br>
 
-    <input type="submit">
+	<input type="submit">
 </form>
