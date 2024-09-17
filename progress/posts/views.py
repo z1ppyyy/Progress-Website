@@ -36,3 +36,7 @@ def progress(request):
             return redirect("index")
         
     return render(request, "post.html")
+
+def post_id(request, pk):
+    posts = Post.objects.get(id=pk)
+    return render(request, 'post_id.html', {'posts': posts})

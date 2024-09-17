@@ -5,6 +5,7 @@
 {% endblock %}
 
 {% block body %}
+
   <h1>Enter your progress</h1>
   
   <form method="post" action="progress">
@@ -22,4 +23,6 @@
   {% if error %}
     <p style="color: rgb(238, 121, 121); font-weight: bold;">{{error}}</p>
   {% endif %}
+</body>
+</html>
 {% endblock %}

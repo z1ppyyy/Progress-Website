@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Post
+{% endblock %}
+
+{% block body %}
+
+<div>
+    <h2><a href="/profile/{{ posts.user }}">{{ posts.user }}</a>'s {{ posts.title }}</h2>
+    <p>{{posts.progress}}</p>
+
+    <h3>
+    Time spent:
+    {% if posts.hours > 0 %}
+        {{ posts.hours }} hour{{ posts.hours|pluralize }}
+        {% if posts.minutes > 0 %} and {{ posts.minutes }} minute{{ posts.minutes|pluralize }}{% endif %}
+    {% else %}
+        {{ posts.minutes }} minute{{ posts.minutes|pluralize }}
+    {% endif %}
+    </h3>
+</div>
+{% endblock %}
