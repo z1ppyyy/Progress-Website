@@ -37,18 +37,8 @@ nav ul li a{
   text-decoration: none;
 }
 
-.post {
-  max-width: 900px;
-  padding: 5px 20px;
-}
-
-.container {
-  max-width: 900px;
-  margin: 25px auto 25px auto;
-  background-color: #fff;
-  padding: 20px 40px 26px 40px;
-  border-radius: 8px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+a {
+  color: black;
 }
 
 h1 {
@@ -72,7 +62,7 @@ input,
 textarea {
   max-width: 100%;
   min-width: 100%;
-  
+  resize: none;
   padding: 10px;
   border: 1px solid #ddd;
   border-radius: 4px;
@@ -101,9 +91,28 @@ button {
 button.full-width {
   display: block;
   text-align: center;
+  margin-bottom: 10px;
   width: 100%;
+}
+
+.post {
+  max-width: 900px;
+  padding: 5px 20px;
+}
+
+.container {
+  max-width: 900px;
+  margin: 25px auto 25px auto;
+  background-color: #fff;
+  padding: 20px 40px 26px 40px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .row {
   display: block;
+}
+
+.error-message {
+  color: #e74c3c;
 }

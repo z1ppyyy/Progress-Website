@@ -7,7 +7,11 @@
 {% block body %}
 
   <h1>Enter your progress</h1>
-  
+
+  {% if error %}
+    <h3 class="error-message">{{error}}</h3>
+  {% endif %}
+
   <form method="post" action="progress">
     {% csrf_token %}
     <p>Enter your today's progress</p>
@@ -17,12 +21,9 @@
     <input type="number" maxlength="2" name="hours" placeholder="e.g. 4"  />
     <label for="minutes">Minutes</label>
     <input type="number" maxlength="2" name="minutes" value="0" placeholder="e.g. 30"  />
-    <input type="submit" />
+    <button class="full-width" type="submit">Submit</button>
     <a href="/"><input type="button" value="Go back"/></a>
   </form>
-  {% if error %}
-    <p style="color: rgb(238, 121, 121); font-weight: bold;">{{error}}</p>
-  {% endif %}
 </body>
 </html>
 {% endblock %}
