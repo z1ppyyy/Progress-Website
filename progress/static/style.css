@@ -116,3 +116,7 @@ button.full-width {
 .error-message {
   color: #e74c3c;
 }
+
+#form-title {
+  margin-top: 0;
+}
