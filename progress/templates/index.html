@@ -6,16 +6,15 @@
 
 {% block body %}
 
-<div class="row">
-  <div class="leftcolumn">
-
     {% for post in content %}
-    <div class="card">
+    <div class="post">
       <h2>
-        <a href="/profile/{{ post.user }}" style="text-decoration: none; color: green;">{{ post.user }}</a>'s 
-        <a href="/post/{{post.id}}" style="text-decoration: none; color: black;">{{ post.title }}
+        <a href="/profile/{{ post.user }}">{{ post.user }}</a>'s 
+        <a  href="/post/{{post.id}}">{{ post.title }}</a>
       </h2>
-      <p>{{post.progress}}</p>
+      <a href="/post/{{post.id}}">
+        
+        <p>{{post.progress}}</p>
 
         <h3>
           Time spent:
@@ -27,9 +26,7 @@
           {% endif %}
         </h3>
 
-        </a>
-      </div>
+      </a>
+    </div>
     {% endfor %}
-</div>
-</div>
 {% endblock %}

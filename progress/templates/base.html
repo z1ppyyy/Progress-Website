@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,17 +11,18 @@
     {% endblock %}
   
   </title>
-
+  <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
 <body>
 
-  <h1><a href="/" style="text-decoration: none; color: #000;">Progress Website👨‍💻</a></h1>
-  <a href="/progress">Post something</a>
-  <a href="/profile/{{user.username}}">Your profile</a>
-  <a href="/logout">Log Out</a>
+  <div class="navbar">
+    {% include "header.html" %}
+  </div>
 
-  {% block body %}
-  {% endblock %} 
+  <div class="container">
+    {% block body %}
+    {% endblock %} 
+  </div>
 
 </body>
 </html>

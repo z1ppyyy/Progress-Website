@@ -6,8 +6,11 @@
 
 {% block body %}
 
-<div>
-    <h2><a href="/profile/{{ posts.user }}">{{ posts.user }}</a>'s {{ posts.title }}</h2>
+<div class="post">
+    <h2>
+        <a href="/profile/{{ posts.user }}">{{ posts.user }}</a>'s 
+        {{ posts.title }}
+    </h2>
     <p>{{posts.progress}}</p>
 
     <h3>
