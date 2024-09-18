@@ -6,6 +6,4 @@ urlpatterns = [
     path('login', views.login, name='login'),
     path('logout', views.logout, name="logout"),
     path('profile/<str:username>', views.profile, name="profile"),
-    path('streak', views.streak, name='streak'),
-    # path('', users.views.myview, name='users_myview'),
 ]

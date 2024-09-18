@@ -4,12 +4,8 @@ from django.contrib import messages
 
 from .models import Profile
 from posts.models import Post
-from django.urls import reverse
 
 # Create your views here.
-reverse('progress',args=())
-
-
 
 def register(request):
     if request.method == 'POST':

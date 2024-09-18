@@ -7,7 +7,6 @@
   <ul>
     {% if user.is_authenticated %}
       <li><a type="button" href="/progress">Post something</a></li>
-      <li><a type="button" href="/streak"></a>Streak</li>
       <li><a type="button" href="/profile/{{user.username}}">Your profile</a></li>
       <li><a type="button" href="/logout">Log Out</a></li>
     {% else %}
