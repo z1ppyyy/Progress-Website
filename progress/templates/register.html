@@ -1,11 +1,10 @@
-{% load static %}
+{% extends "base.html" %}
 
-<link rel="stylesheet" href="{% static 'style.css' %}">
+{% block title %}
+  <title>Registration</title>
+{% endblock %}
 
-<title>Registration</title>
-
-
-<div class="container">
+{% block body %}
   <h1 id="form-title">Sign Up below</h1>
   <form method="post" method="register">
     {% csrf_token %}
@@ -23,4 +22,4 @@
     <br>
     <button class="full-width" type="submit">Submit</button>
   </form>
-</div>
+{% endblock %}

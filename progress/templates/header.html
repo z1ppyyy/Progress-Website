@@ -1,8 +1,17 @@
-<nav>
+{% if user.is_authenticated %}
+  <nav style="justify-content: space-evenly;">
+{% else %}
+  <nav style="justify-content: space-around;">
+{% endif %}
   <h1 class="nav-title"><a href="/" style="text-decoration: none; color: #000;">Progress Website👨‍💻</a></h1>
   <ul>
-    <li><a  type="button" href="/progress">Post something</a></li>
-    <li><a type="button" href="/profile/{{user.username}}">Your profile</a></li>
-    <li><a type="button" href="/logout">Log Out</a></li>
+    {% if user.is_authenticated %}
+      <li><a  type="button" href="/progress">Post something</a></li>
+      <li><a type="button" href="/profile/{{user.username}}">Your profile</a></li>
+      <li><a type="button" href="/logout">Log Out</a></li>
+    {% else %}
+      <li><a type="button" href="/login">Log In</a></li>
+      <li><a type="button" href="/register">Register</a></li>
+    {% endif %}
   </ul>
 </nav>

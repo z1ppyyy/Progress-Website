@@ -6,28 +6,28 @@
 
 {% block body %}
 
-    {% for post in content %}
-    <div class="post">
-      <h2>
-        <a href="/profile/{{ post.user }}">{{ post.user }}</a>'s 
-        <a  href="/post/{{post.id}}">{{ post.title }}</a>
-      </h2>
-      <a href="/post/{{post.id}}">
-        
-        <p>{{post.progress}}</p>
+  {% for post in content %}
+  <div class="post">
+    <h2>
+      <a href="/profile/{{ post.user }}">{{ post.user }}</a>'s 
+      <a  href="/post/{{post.id}}">{{ post.title }}</a>
+    </h2>
+    <a href="/post/{{post.id}}">
+      
+      <p>{{post.progress}}</p>
 
-        <h3>
-          Time spent:
-          {% if post.hours > 0 %}
-            {{ post.hours }} hour{{ post.hours|pluralize }}
-            {% if post.minutes > 0 %} and {{ post.minutes }} minute{{ post.minutes|pluralize }}{% endif %}
-          {% else %}
-            {{ post.minutes }} minute{{ post.minutes|pluralize }}
-          {% endif %}
-        </h3>
+      <h3>
+        Time spent:
+        {% if post.hours > 0 %}
+          {{ post.hours }} hour{{ post.hours|pluralize }}
+          {% if post.minutes > 0 %} and {{ post.minutes }} minute{{ post.minutes|pluralize }}{% endif %}
+        {% else %}
+          {{ post.minutes }} minute{{ post.minutes|pluralize }}
+        {% endif %}
+      </h3>
 
-      </a>
-    </div>
-    <hr>
-    {% endfor %}
+    </a>
+  </div>
+  <hr>
+  {% endfor %}
 {% endblock %}

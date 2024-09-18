@@ -1,10 +1,10 @@
-{% load static %}
+{% extends "base.html" %}
 
-<link rel="stylesheet" href="{% static 'style.css' %}">
+{% block title %}
+  <title>Registration</title>
+{% endblock %}
 
-<title>Login</title>
-
-<div class="container">
+{% block body %}
 	
 	<h1 id="form-title">Log in into your account</h1>
 	<p>
@@ -21,4 +21,5 @@
 	
 		<button class="full-width" type="submit">Submit</button>
 	</form>
-</div>
+
+{% endblock %}
