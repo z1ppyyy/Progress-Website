@@ -4,8 +4,12 @@ from django.contrib import messages
 
 from .models import Profile
 from posts.models import Post
+from django.urls import reverse
 
 # Create your views here.
+reverse('progress',args=())
+
+
 
 def register(request):
     if request.method == 'POST':
@@ -58,3 +62,6 @@ def profile(request, username):
     posts = Post.objects.filter(user=user)
 
     return render(request, "profile.html", {"profile": profile, "posts": posts})
+
+def streak(request):
+    return render(request, 'streak.html')
