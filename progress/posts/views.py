@@ -14,7 +14,7 @@ def index(request):
 def progress(request):
     """Handle the progress posting"""
     if request.method == "POST":
-        # user_object = Profile.objects.get(id=request.user.id)
+        user_object = Profile.objects.get(user=request.user)
         progress = request.POST['progress']
         hours = request.POST['hours']
         minutes = request.POST['minutes']
@@ -51,11 +51,9 @@ def progress(request):
                         user_object.streak += 1
                 except:
                     pass
-            # user_object.streak += 1
-            # user_object.save()
+            user_object.streak += 1
+            user_object.save()
 
-            # Logic to check if its a streak
-            # print(Profile.objects.get(id=request.user.id).streak)
             return redirect("index")
 
     return render(request, "post.html")

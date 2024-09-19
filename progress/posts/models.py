@@ -10,7 +10,7 @@ class Post(models.Model):
     progress = models.CharField(max_length=900)
     hours = models.IntegerField()
     minutes = models.IntegerField()
-    date = models.DateField(auto_now_add=True, blank=True)
+    date = models.DateField(default=date.today())
 
     def save(self, *args, **kwargs):
         # Automatically set title to "current date progress" before saving
