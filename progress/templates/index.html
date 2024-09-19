@@ -6,10 +6,8 @@
 
 {% block body %}
 
-  {% if content.post == None %}
-    <p>No posts yet.</p>
-  {% else %}
-
+  {% if not content %}
+    <h3>No posts yet.</h3>
   {% endif %}
 
   {% for post in content %}

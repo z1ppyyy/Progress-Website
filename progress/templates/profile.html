@@ -15,6 +15,10 @@
 
   <div class="left-column">
 
+    {% if not posts %}
+      <h3>No posts yet.</h3>
+    {% endif %}
+
     {% for post in posts reversed %}
     <hr>
     <div class="card">
