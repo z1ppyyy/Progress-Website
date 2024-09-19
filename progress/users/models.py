@@ -9,3 +9,23 @@ class Profile(models.Model):
 
     def __str__(self):
         return f"{self.user.username} Profile"
+
+    def inc_streak(self, value=1):
+        """
+        Increment streak.
+
+        :param int value(default=1): Value wanted to increment the streak by.
+
+        :return: None.
+        """
+        self.streak += value
+        self.save()
+
+    def kill_streak(self):
+        """
+        Kill streak.
+
+        :return: None.
+        """
+        self.streak = 0
+        self.save()

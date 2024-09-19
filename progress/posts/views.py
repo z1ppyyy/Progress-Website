@@ -33,7 +33,7 @@ def progress(request):
                 user=request.user,
                 progress=progress,
                 hours=hours,
-                minutes=minutes
+                minutes=minutes,
             )
             post.save()
             posts = Post.objects.all()[::-1]
@@ -53,7 +53,6 @@ def progress(request):
                     pass
             user_object.streak += 1
             user_object.save()
-
             return redirect("index")
 
     return render(request, "post.html")
