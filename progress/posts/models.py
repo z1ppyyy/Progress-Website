@@ -20,7 +20,7 @@ class Post(models.Model):
         super(Post, self).save(*args, **kwargs)
 
         # If it's saved, update the streak
-        profile_object = Profile.objects.get(id=self.user.id)  # Get the current user
+        profile_object = Profile.objects.get(user=self.user)  # Get the current user
 
         post_objects = Post.objects.filter(user=self.user)[::-1]  # Get the posts from the user
 

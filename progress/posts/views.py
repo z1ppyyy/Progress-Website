@@ -43,11 +43,11 @@ def progress(request):
                         continue
                     elif (posts[index].date - posts[index].date) != 1:
                         # Kill streak
-                        user_object = Profile.objects.get(id=request.user.id)
+                        user_object = Profile.objects.get(user=request.user)
                         user_object.streak = 0
                         break
                     else:
-                        user_object = Profile.objects.get(id=request.user.id)
+                        user_object = Profile.objects.get(user=request.user)
                         user_object.streak += 1
                 except:
                     pass
