@@ -33,29 +33,9 @@ def progress(request):
                 user=request.user,
                 progress=progress,
                 hours=hours,
-                minutes=minutes
+                minutes=minutes,
             )
             post.save()
-            posts = Post.objects.all()[::-1]
-            for index, post in enumerate(posts):
-                try:
-                    if (posts[index].date - posts[index].date):
-                        continue
-                    elif (posts[index].date - posts[index].date) != 1:
-                        # Kill streak
-                        user_object = Profile.objects.get(id=request.user.id)
-                        user_object.streak = 0
-                        break
-                    else:
-                        user_object = Profile.objects.get(id=request.user.id)
-                        user_object.streak += 1
-                except:
-                    pass
-            # user_object.streak += 1
-            # user_object.save()
-
-            # Logic to check if its a streak
-            # print(Profile.objects.get(id=request.user.id).streak)
             return redirect("index")
 
     return render(request, "post.html")
