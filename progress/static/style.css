@@ -103,7 +103,7 @@ button.full-width {
   max-width: 900px;
   margin: 25px auto 25px auto;
   background-color: #fff;
-  padding: 20px 40px 26px 40px;
+  padding: 20px 40px 20px 40px;
   border-radius: 8px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
