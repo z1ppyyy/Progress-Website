@@ -8,6 +8,8 @@
 
   {% if not content %}
     <h3>No posts yet.</h3>
+  {% else %}
+    <hr>
   {% endif %}
 
   {% for post in content %}
@@ -29,8 +31,13 @@
           {{ post.minutes }} minute{{ post.minutes|pluralize }}
         {% endif %}
       </h3>
-
+    
     </a>
+    {% if requested == post.user %}
+      <a href="delete/{{ post.id }}">delete</a>
+    {% else %}
+      
+    {% endif %}
   </div>
   <hr>
   {% endfor %}

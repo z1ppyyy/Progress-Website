@@ -5,6 +5,8 @@ from django.contrib import messages
 from .models import Profile
 from posts.models import Post
 
+from django.http import HttpResponse
+
 # Create your views here.
 
 
@@ -60,7 +62,7 @@ def profile(request, username):
     profile = Profile.objects.get(user=user)
     posts = Post.objects.filter(user=user)
 
-    return render(request, "profile.html", {"profile": profile, "posts": posts})
+    return render(request, "profile.html", {"profile": profile, "posts": posts, "requested": request.user})
 
 
 def streak(request):

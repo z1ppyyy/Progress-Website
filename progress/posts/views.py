@@ -1,4 +1,5 @@
 from django.contrib.auth.decorators import login_required
+from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from .models import Post
 from users.models import Profile
@@ -8,7 +9,7 @@ from users.models import Profile
 def index(request):
     """Show main page"""
     content = list(Post.objects.all())[::-1]
-    return render(request, "index.html", {"content": content})
+    return render(request, "index.html", {"content": content, "requested": request.user})
 
 
 def progress(request):
@@ -58,6 +59,14 @@ def progress(request):
     return render(request, "post.html")
 
 
-def post_id(request, pk):
-    posts = Post.objects.get(id=pk)
+def post_id(request, id):
+    posts = Post.objects.get(id=id)
     return render(request, 'post_id.html', {'posts': posts})
+
+def delete_post(request, id):   
+    post_to_delete = Post.objects.get(id=id)
+    if request.user == post_to_delete.user:
+        post_to_delete.delete()
+    else:
+        return HttpResponse("You are not the owner of this post. <a href='/'>Back to Home Page</a>")
+    return redirect("index")
