@@ -1,17 +1,20 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from .models import Post
+from users.models import Profile
 
-# Create your views here.
+
 @login_required(login_url='/login')
 def index(request):
     """Show main page"""
     content = list(Post.objects.all())[::-1]
     return render(request, "index.html", {"content": content})
 
+
 def progress(request):
     """Handle the progress posting"""
     if request.method == "POST":
+        user_object = Profile.objects.get(user=request.user)
         progress = request.POST['progress']
         hours = request.POST['hours']
         minutes = request.POST['minutes']
@@ -27,15 +30,33 @@ def progress(request):
             return render(request, "post.html", {"error": error})
         else:
             post = Post(
-                user=request.user, 
-                progress=progress, 
-                hours=hours, 
-                minutes=minutes
+                user=request.user,
+                progress=progress,
+                hours=hours,
+                minutes=minutes,
             )
             post.save()
+            posts = Post.objects.all()[::-1]
+            for index, post in enumerate(posts):
+                try:
+                    if (posts[index].date - posts[index].date):
+                        continue
+                    elif (posts[index].date - posts[index].date) != 1:
+                        # Kill streak
+                        user_object = Profile.objects.get(user=request.user)
+                        user_object.streak = 0
+                        break
+                    else:
+                        user_object = Profile.objects.get(user=request.user)
+                        user_object.streak += 1
+                except:
+                    pass
+            user_object.streak += 1
+            user_object.save()
             return redirect("index")
-        
+
     return render(request, "post.html")
+
 
 def post_id(request, pk):
     posts = Post.objects.get(id=pk)

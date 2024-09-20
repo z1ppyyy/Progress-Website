@@ -7,6 +7,7 @@ from posts.models import Post
 
 # Create your views here.
 
+
 def register(request):
     if request.method == 'POST':
 
@@ -48,16 +49,19 @@ def login(request):
             return redirect('login')
     return render(request, 'login.html')
 
+
 def logout(request):
     auth.logout(request)
     return redirect('/login')
 
-def profile(request, username): 
+
+def profile(request, username):
     user = User.objects.get(username=username)
     profile = Profile.objects.get(user=user)
     posts = Post.objects.filter(user=user)
 
     return render(request, "profile.html", {"profile": profile, "posts": posts})
+
 
 def streak(request):
     return render(request, 'streak.html')

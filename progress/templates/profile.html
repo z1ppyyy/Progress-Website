@@ -8,11 +8,16 @@
 
 <div class="row">
   <h1>{{ profile.user }}</h1>
+  <p>Current Streak: {{ profile.streak }}</p>
   <img src="{{ profile.image.url }}" style="height: 200px; width: 200px; border: 1px solid black; border-radius: 50%;"/>
   <p>{{ profile.user.email }}</p>
   <p>Member since: {{ profile.user.date_joined }}</p>
 
   <div class="left-column">
+
+    {% if not posts %}
+      <h3>No posts yet.</h3>
+    {% endif %}
 
     {% for post in posts reversed %}
     <hr>
