@@ -42,7 +42,8 @@
 
       </a>
       {% if requested == post.user %}
-        <a href="/delete/{{ post.id }}">delete</a>
+        <a href="delete/{{ post.id }}">delete</a>
+        <a href="edit/{{ post.id }}">edit</a>
       {% endif %}
     </div>
     {% endfor %}
