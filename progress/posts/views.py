@@ -61,7 +61,7 @@ def progress(request):
 
 def post_id(request, id):
     posts = Post.objects.get(id=id)
-    return render(request, 'post_id.html', {'posts': posts})
+    return render(request, 'post_id.html', {'posts': posts, "requested": request.user})
 
 def delete_post(request, id):   
     post_to_delete = Post.objects.get(id=id)
@@ -70,3 +70,31 @@ def delete_post(request, id):
     else:
         return HttpResponse("You are not the owner of this post. <a href='/'>Back to Home Page</a>")
     return redirect("index")
+
+def edit_post(request, id):
+    post_obj = Post.objects.get(id=id)
+    if request.method == "POST":
+        progress = request.POST['progress']
+        hours = request.POST['hours']
+        minutes = request.POST['minutes']
+
+        if len(hours) < 1:
+            error = "Please enter hours"
+            return render(request, "post.html", {"error": error, "post": post_obj})
+        elif len(progress) < 10:
+            error = "The length of progress should be at least 10 characters."
+            return render(request, "post.html", {"error": error, "post": post_obj})
+        elif int(hours) > 23 or int(hours) < 1 or int(minutes) < 0 or int(minutes) > 59:
+            error = "Please enter valid time spent"
+            return render(request, "post.html", {"error": error, "post": post_obj})
+        else:
+            post_obj.progress = progress
+            post_obj.hours = hours
+            post_obj.minutes = minutes
+            post_obj.save()
+            return redirect("index")
+    else:
+        if request.user == post_obj.user:
+            return render(request, "post.html", {"post": post_obj})
+        else:
+            return HttpResponse("You are not the owner of this post. <a href='/'>Back to Home Page</a>")
