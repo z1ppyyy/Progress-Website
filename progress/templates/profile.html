@@ -15,10 +15,6 @@
 
   <div class="left-column">
 
-    {% if not posts %}
-      <h3>No posts yet.</h3>
-    {% endif %}
-
     {% for post in posts reversed %}
     <hr>
     <div class="card">
@@ -42,12 +38,18 @@
 
       </a>
       {% if requested == post.user %}
-        <a href="delete/{{ post.id }}">delete</a>
-        <a href="edit/{{ post.id }}">edit</a>
+        <a href="../delete/{{ post.id }}">delete</a>
+        <a href="../edit/{{ post.id }}">edit</a>
       {% endif %}
     </div>
     {% endfor %}
-    <hr>
+    
+    {% if not posts %}
+      <h3>No posts yet.</h3>
+    {% else %}  
+      <hr>
+    {% endif %}
+
 </div>
 </div>
 {% endblock %}
