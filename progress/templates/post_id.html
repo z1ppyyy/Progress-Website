@@ -7,20 +7,34 @@
 {% block body %}
 
 <div class="post">
-    <h2>
-        <a href="/profile/{{ posts.user }}">{{ posts.user }}</a>'s 
+    <h2 class="card-main">
+        <img class="card-image" src="{{ posts.user.profile.image.url }}" height="25px" alt="{{ posts.user }} image">
+        <a class="card-username" href="/profile/{{ posts.user }}">{{ posts.user }}</a>'s 
         {{ posts.title }}
     </h2>
     <p>{{posts.progress}}</p>
 
-    <h3>
-    Time spent:
-    {% if posts.hours > 0 %}
-        {{ posts.hours }} hour{{ posts.hours|pluralize }}
-        {% if posts.minutes > 0 %} and {{ posts.minutes }} minute{{ posts.minutes|pluralize }}{% endif %}
-    {% else %}
-        {{ posts.minutes }} minute{{ posts.minutes|pluralize }}
-    {% endif %}
-    </h3>
+    <div class="hours-layout">
+
+        <h3>
+          Time spent:
+          {% if posts.hours > 0 %}
+            {{ posts.hours }} hour{{ posts.hours|pluralize }}
+            {% if posts.minutes > 0 %} and {{ posts.minutes }} minute{{ posts.minutes|pluralize }}{% endif %}
+          {% else %}
+            {{ posts.minutes }} minute{{ posts.minutes|pluralize }}
+          {% endif %}
+        </h3>
+        
+    </a>
+        {% if requested == posts.user %}
+          <div>
+            <a class="delete" href="../delete/{{ posts.id }}">delete</a>
+            <a class="edit" href="../edit/{{ posts.id }}">edit</a>
+          </div>
+        {% else %}
+      
+        {% endif %}
+      </div>
 </div>
 {% endblock %}

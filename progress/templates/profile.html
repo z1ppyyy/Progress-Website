@@ -18,29 +18,37 @@
     {% for post in posts reversed %}
     <hr>
     <div class="card">
-      <h2>
-        <a class="card-username" href="/profile/{{ post.user }}">{{ post.user }}</a>'s 
+      <h2 class="card-main">
+        <img class="card-image" src="{{ post.user.profile.image.url }}" height="25px" alt="{{ post.user }} image">
+        <a class="card-username" href="/profile/{{ post.user }}" >{{ post.user }}</a>'s
         <a class="card-title" href="/post/{{post.id}}">{{ post.title }}</a>
       </h2>
       <a href="/post/{{post.id}}">
 
         <p class="card-progress">{{post.progress}}</p>
 
-        <h3 class="card-time">
-          Time spent:
-          {% if post.hours > 0 %}
-            {{ post.hours }} hour{{ post.hours|pluralize }}
-            {% if post.minutes > 0 %} and {{ post.minutes }} minute{{ post.minutes|pluralize }}{% endif %}
-          {% else %}
-            {{ post.minutes }} minute{{ post.minutes|pluralize }}
-          {% endif %}
-        </h3>
+        <div class="hours-layout">
 
+          <h3>
+            Time spent:
+            {% if post.hours > 0 %}
+              {{ post.hours }} hour{{ post.hours|pluralize }}
+              {% if post.minutes > 0 %} and {{ post.minutes }} minute{{ post.minutes|pluralize }}{% endif %}
+            {% else %}
+              {{ post.minutes }} minute{{ post.minutes|pluralize }}
+            {% endif %}
+          </h3>
+          
       </a>
-      {% if requested == post.user %}
-        <a href="../delete/{{ post.id }}">delete</a>
-        <a href="../edit/{{ post.id }}">edit</a>
-      {% endif %}
+          {% if requested == post.user %}
+            <div>
+              <a class="delete" href="delete/{{ post.id }}">delete</a>
+              <a class="edit" href="edit/{{ post.id }}">edit</a>
+            </div>
+          {% else %}
+        
+          {% endif %}
+        </div>
     </div>
     {% endfor %}
     
