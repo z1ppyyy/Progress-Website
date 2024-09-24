@@ -4,6 +4,11 @@ from django.shortcuts import render, redirect
 from .models import Post
 from users.models import Profile
 
+# TODOS
+
+# TODO: Add 'all posts' row instead of streak
+
+# TODO: Make a cooldown for posting (allow posting only once a day)
 
 @login_required(login_url='/login')
 def index(request):

@@ -1,8 +1,11 @@
 * {
   text-decoration: none;
+  font-family: sans-serif;
+  
 }
 
 body {  
+  margin: 0;
   background-color: #f7f9fc;
   color: #333;
   line-height: 1.6;
@@ -87,39 +90,67 @@ button {
   transition: background-color 0.3s;
 }
 
+input,
+textarea,
 button.full-width {
-  display: block;
-  text-align: center;
+  max-width: 100%;
+  min-width: 100%;
+  width: 100%; /* Ensure full width */
+  box-sizing: border-box; /* Ensures padding and borders are included in width */
+  padding: 10px;
   margin-bottom: 10px;
-  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1em;
+  outline: none;
+  transition: border 0.3s;
 }
+
 
 .post {
   max-width: 900px;
-  padding: 5px 20px;
+  padding: 10px auto;
 }
 
 .container {
   max-width: 900px;
-  margin: 25px auto 25px auto;
+  margin: 25px auto;
   background-color: #fff;
-  padding: 20px 40px 20px 40px;
+  padding: 25px 40px;
   border-radius: 8px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .card-main {
+  margin: 0;
+  margin-top: 30px;
   display: flex;
   align-items: center;
+  font-size: 1.2em;
+  font-weight: bold;
 }
 
 .card-image {
-  border: 1px solid black;
+  border: 2px solid black;
   border-radius: 50%;
 }
 
-.card-username, .card-title {
+.card-username {
   margin-left: 5px;
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+}
+
+.card-title {
+  margin-left: 5px;
+  text-decoration: none;
+  color: #007BFF;
+}
+
+.card-progress {
+  white-space: pre-wrap;
+  word-wrap: break-word;
 }
 
 .row {
@@ -131,6 +162,7 @@ button.full-width {
 }
 
 a.edit {
+  padding: 5px 10px;
   background-color: #007bff;
 }
 
@@ -158,6 +190,7 @@ a.delete:hover {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 20px;
 }
 
 .hours-layout h3 {
@@ -167,4 +200,55 @@ a.delete:hover {
 
 #form-title {
   margin-top: 0;
+}
+
+@media (max-width: 1000px) {
+  .container {
+    width: 700px;
+  }
+}
+@media (max-width: 800px) {
+  .container {
+    width: 600px;
+  }
+}
+@media (max-width: 770px) {
+  .container {
+    width: 500px;
+  }
+  nav {
+    justify-content: center;
+  }
+  nav ul {
+    display: none;
+  } 
+}
+@media (max-width: 600px) {
+  .container {
+    width: 300px;
+  }
+  .card-main {
+    font-size: 1em;
+  }
+  a.edit, a.delete {
+    font-size: 0.8em;
+  }
+  nav {
+    justify-content: center;
+  }
+  textarea {
+    height: 150px;
+  }
+  nav ul li {
+    display: none;
+  } 
+  h1 {
+    font-size: 2em;
+  }
+  h2 {
+    font-size: 1em;
+  }
+  h3 {
+    font-size: 0.8em;
+  }
 }

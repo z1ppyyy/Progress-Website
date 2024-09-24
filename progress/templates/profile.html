@@ -7,6 +7,7 @@
 {% block body %}
 
 <div class="row">
+  <!-- TODO: Make styling for profile page -->
   <h1>{{ profile.user }}</h1>
   <p>Current Streak: {{ profile.streak }}</p>
   <img src="{{ profile.image.url }}" style="height: 200px; width: 200px; border: 1px solid black; border-radius: 50%;"/>
@@ -42,8 +43,8 @@
       </a>
           {% if requested == post.user %}
             <div>
-              <a class="delete" href="delete/{{ post.id }}">delete</a>
-              <a class="edit" href="edit/{{ post.id }}">edit</a>
+              <a class="delete" href="../delete/{{ post.id }}">delete</a>
+              <a class="edit" href="../edit/{{ post.id }}">edit</a>
             </div>
           {% else %}
         
