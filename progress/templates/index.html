@@ -9,11 +9,11 @@
   {% if not content %}
     <h3>No posts yet.</h3>
   {% else %}
-    <hr>
+
   {% endif %}
 
   {% for post in content %}
-  <div class="post">
+  <div class="card">
     <h2 class="card-main">
       <img class="card-image" src="{{ post.user.profile.image.url }}" height="25px" alt="{{ post.user }} image">
       <a class="card-username" href="/profile/{{ post.user }}" >{{ post.user }}</a>'s
@@ -46,6 +46,6 @@
         {% endif %}
       </div>
   </div>
-  <hr>
+
   {% endfor %}
 {% endblock %}

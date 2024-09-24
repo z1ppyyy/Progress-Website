@@ -1,7 +1,6 @@
 * {
   text-decoration: none;
   font-family: sans-serif;
-  
 }
 
 body {  
@@ -95,8 +94,8 @@ textarea,
 button.full-width {
   max-width: 100%;
   min-width: 100%;
-  width: 100%; /* Ensure full width */
-  box-sizing: border-box; /* Ensures padding and borders are included in width */
+  width: 100%;
+  box-sizing: border-box;
   padding: 10px;
   margin-bottom: 10px;
   border: 1px solid #ddd;
@@ -106,15 +105,74 @@ button.full-width {
   transition: border 0.3s;
 }
 
-
-.post {
-  max-width: 900px;
-  padding: 10px auto;
-}
-
 .container {
   max-width: 900px;
-  margin: 25px auto;
+  margin: 25px auto ;
+  background-color: #fff;
+  padding: 25px 40px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.row {
+  display: block;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 50px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.05);
+  max-width: 800px;
+  margin: 0 auto 20px auto;
+}
+
+.profile .image-box {
+  flex-shrink: 0;
+  margin-right: 25px;
+}
+
+.profile .image-box .profile-pic {
+  height: 140px;
+  width: 140px;
+  border-radius: 50%;
+  border: 3px solid #e0e0e0;
+  object-fit: cover;
+  transition: transform 0.3s ease-in-out, border-color 0.3s ease-in-out;
+}
+
+.profile .image-box .profile-pic:hover {
+  transform: scale(1.05);
+  border-color: #007bff;
+}
+
+.profile .text-box h1 {
+  font-size: 2.2em;
+  margin-bottom: 5px;
+  color: #333;
+  font-weight: 600;
+}
+
+.profile .text-box p {
+  font-size: 1.15em;
+  color: #555;
+  margin: 8px 0;
+}
+
+.profile .text-box p:first-of-type {
+  margin-top: 0;
+}
+
+.profile .text-box p:last-of-type {
+  font-style: italic;
+  color: #777;
+}
+
+.card {
+  margin: 25px auto auto;
   background-color: #fff;
   padding: 25px 40px;
   border-radius: 8px;
@@ -151,10 +209,6 @@ button.full-width {
 .card-progress {
   white-space: pre-wrap;
   word-wrap: break-word;
-}
-
-.row {
-  display: block;
 }
 
 .error-message {
@@ -213,6 +267,28 @@ a.delete:hover {
   }
 }
 @media (max-width: 770px) {
+  .profile .image-box {
+    margin: 0;
+  }
+  .profile {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .profile .image-box .profile-pic {
+    height: 100px;
+    width: 100px;
+  }
+
+  .profile .text-box h1 {
+    font-size: 1.8em;
+  }
+
+  .profile .text-box p {
+    font-size: 1em;
+  }
+
   .container {
     width: 500px;
   }
@@ -225,10 +301,10 @@ a.delete:hover {
 }
 @media (max-width: 600px) {
   .container {
-    width: 300px;
+    width: auto;
   }
   .card-main {
-    font-size: 1em;
+    font-size: 0.8em;
   }
   a.edit, a.delete {
     font-size: 0.8em;
