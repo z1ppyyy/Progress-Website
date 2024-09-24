@@ -8,12 +8,10 @@
 
   {% if not content %}
     <h3>No posts yet.</h3>
-  {% else %}
-
   {% endif %}
 
   {% for post in content %}
-  <div class="card">
+  <div class="post">
     <h2 class="card-main">
       <img class="card-image" src="{{ post.user.profile.image.url }}" height="25px" alt="{{ post.user }} image">
       <a class="card-username" href="/profile/{{ post.user }}" >{{ post.user }}</a>'s
@@ -21,7 +19,7 @@
     </h2>
     <a href="/post/{{post.id}}">
 
-      <p class="card-progress">{{post.progress}}</p>
+      <p>{{post.progress}}</p>
 
       <div class="hours-layout">
 
@@ -34,18 +32,29 @@
             {{ post.minutes }} minute{{ post.minutes|pluralize }}
           {% endif %}
         </h3>
-        
+
     </a>
         {% if requested == post.user %}
           <div>
-            <a class="delete" href="delete/{{ post.id }}">delete</a>
-            <a class="edit" href="edit/{{ post.id }}">edit</a>
+            <ul class="post-controls">
+              <li class="delete">
+                <svg xmlns="http://www.w3.org/2000/svg" width="1.7em" height="1.7em" viewBox="0 0 24 24">
+                  <path  d="M7 21q-.825 0-1.412-.587T5 19V6H4V4h5V3h6v1h5v2h-1v13q0 .825-.587 1.413T17 21zm2-4h2V8H9zm4 0h2V8h-2z" />
+                </svg>
+                <a href="delete/{{ post.id }}">delete</a>
+              </li>
+              <li class="edit">
+                <svg xmlns="http://www.w3.org/2000/svg" width="1.7em" height="1.7em" viewBox="0 0 24 24">
+                  <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75zM20.71 7.04a.996.996 0 0 0 0-1.41l-2.34-2.34a.996.996 0 0 0-1.41 0l-1.83 1.83l3.75 3.75z" />
+                </svg>
+                <a  href="edit/{{ post.id }}">edit</a>
+              </li>
+            </ul>
           </div>
         {% else %}
-      
+
         {% endif %}
       </div>
   </div>
-
   {% endfor %}
 {% endblock %}
