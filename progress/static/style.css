@@ -107,7 +107,7 @@ button.full-width {
 
 .container {
   max-width: 900px;
-  margin: 25px auto ;
+  margin: 25px auto;
   background-color: #fff;
   padding: 25px 40px;
   border-radius: 8px;
@@ -172,7 +172,7 @@ button.full-width {
 }
 
 .card {
-  margin: 25px auto auto;
+  margin: 10px auto 10px auto;
   background-color: #fff;
   padding: 25px 40px;
   border-radius: 8px;
