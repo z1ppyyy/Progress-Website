@@ -1,28 +1,26 @@
 {% load static %}
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>
-    
+
     {% block title %}
     {% endblock %}
-  
+
   </title>
   <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
 <body>
-
-  <div class="navbar">
-    {% include "header.html" %}
+  <div id="background">
   </div>
-
-  <div class="container">
+  {% include "header.html" %}
+  <main class="">
     {% block body %}
-    {% endblock %} 
-  </div>
-
+    {% endblock %}
+  </main>
+  {% include "footer.html"%}
 </body>
 </html>

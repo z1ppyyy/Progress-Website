@@ -5,21 +5,23 @@
 {% endblock %}
 
 {% block body %}
-	
+
+<section id="form">
 	<h1 id="form-title">Log in into your account</h1>
 	<p>
-		Don't have an account?
-		<a href="/register">Sign Up</a>
+	Don't have an account?
+	<a href="/register">Sign Up</a>
 	</p>
 	<form action="login" method="post">
 		{% csrf_token %}
 		<p>Username:</p>
 		<input type="text" name="username">
-	
-		<p>Password</p>
+
+		<p>Password:</p>
 		<input type="password" name="password"><br>
-	
-		<button class="full-width" type="submit">Submit</button>
+
+		<button class="action-submit" type="submit">Log In</button>
 	</form>
 
+</section>
 {% endblock %}
