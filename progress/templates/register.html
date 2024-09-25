@@ -5,21 +5,28 @@
 {% endblock %}
 
 {% block body %}
-  <h1 id="form-title">Sign Up below</h1>
+<section id="form">
+  <h1 id="form-title">Sign up below</h1>
+  <p>
+  Have an account?
+  <a href="/login">Log In
+    </a>
+  </p>
   <form method="post" method="register">
     {% csrf_token %}
     <p>Username: </p>
     <input type="text" name="username" />
-    
+
     <p>Email: </p>
     <input type="email" name="email" />
-    
+
     <p>Password: </p>
     <input type="password" name="password" />
-    
+
     <p>Repeat Password: </p>
     <input type="password" name="password2" />
     <br>
-    <button class="full-width" type="submit">Submit</button>
+		<button class="action-submit" type="submit">Sign Up</button>
   </form>
+</section>
 {% endblock %}
