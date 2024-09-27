@@ -1,20 +1,40 @@
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
-from .models import Post
+from .models import Post, LikePost
 from users.models import Profile
-
-# TODOS
-
-# TODO: Add 'all posts' row instead of streak
-
-# TODO: Make a cooldown for posting (allow posting only once a day)
 
 @login_required(login_url='/login')
 def index(request):
     """Show main page"""
     content = list(Post.objects.all())[::-1]
-    return render(request, "index.html", {"content": content, "requested": request.user})
+    context = {
+        "content": content,
+        "requested": request.user
+    }
+
+    if request.method == "POST":
+        username = request.user.username
+        post_id = request.POST.get("post-id")
+
+        post = Post.objects.get(id=post_id)
+
+        like_filter = LikePost.objects.filter(post_id=post_id, username=username).first()
+
+        if like_filter == None:
+            new_like = LikePost.objects.create(post_id=post_id, username=username)
+            new_like.save()
+            post.no_of_likes+=1
+            post.save()
+            
+            return redirect( "index")
+        else:
+            like_filter.delete()
+            post.no_of_likes-=1
+            post.save()
+            return redirect("index")
+
+    return render(request, "index.html", context)
 
 
 def progress(request):

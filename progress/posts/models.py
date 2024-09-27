@@ -12,6 +12,7 @@ class Post(models.Model):
     hours = models.IntegerField()
     minutes = models.IntegerField()
     date = models.DateField(auto_now_add=True)
+    no_of_likes = models.IntegerField(default=0)
 
     def save(self, *args, **kwargs):
         # Automatically set title to "current date progress" before saving
@@ -41,5 +42,15 @@ class Post(models.Model):
     def __str__(self):
         return f"{self.user.username} - {self.progress[:20]}"
 
+    def count(self):
+        return self.count()
+
     class Meta:
         ordering = ['date']  # date order so newest is first
+
+class LikePost(models.Model):
+    post_id = models.CharField(max_length=500)
+    username = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.username
