@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block body %}
-
+	
   {% if not content %}
     <h3>No posts yet.</h3>
   {% else %}
@@ -13,48 +13,8 @@
   {% endif %}
 
   {% for post in content %}
-  <div class="card">
-    <h2 class="card-main">
-      <img class="card-image" src="{{ post.user.profile.image.url }}" height="25px" alt="{{ post.user }} image">
-      <a class="card-username" href="/profile/{{ post.user }}" >{{ post.user }}</a>'s
-      <a class="card-title" href="/post/{{post.id}}">{{ post.title }}</a>
-    </h2>
-    <a href="/post/{{post.id}}">
+  
+		{% include 'post_card.html' %}
 
-      <p class="card-progress">{{post.progress}}</p>
-
-      <div class="hours-layout">
-
-        <h3>
-          {% if post.hours > 0 %}
-            {{ post.hours }} hour{{ post.hours|pluralize }}
-            {% if post.minutes > 0 %} and {{ post.minutes }} minute{{ post.minutes|pluralize }}{% endif %}
-          {% else %}
-            {{ post.minutes }} minute{{ post.minutes|pluralize }}
-          {% endif %}
-        </h3>
-        
-    </a>
-			<div class="buttons-container">
-        <form action="" method="POST">
-          {% csrf_token %}
-          <button class="like-button" type="submit" name="post-id" value="{{ post.id }}">
-						👍 {{ post.no_of_likes }}
-          </button>
-
-        
-					{% if requested == post.user %}
-
-            <a class="delete" href="delete/{{ post.id }}">delete</a>
-            <a class="edit" href="edit/{{ post.id }}">edit</a>
-						
-					{% else %}
-      
-					{% endif %}
-				</form>
-      </div>
-		</div>
-  </div>
-
-  {% endfor %}
+	{% endfor %}
 {% endblock %}

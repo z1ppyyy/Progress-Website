@@ -27,7 +27,7 @@ def index(request):
             post.no_of_likes+=1
             post.save()
             
-            return redirect( "index")
+            return redirect("index")
         else:
             like_filter.delete()
             post.no_of_likes-=1
