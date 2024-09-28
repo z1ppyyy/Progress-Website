@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block body %}
-  <h1 id="form-title">Sign Up below</h1>
+  <h1 id="form-title">Sign Up</h1>
   <form method="post" method="register">
     {% csrf_token %}
     <p>Username: </p>
@@ -20,6 +20,6 @@
     <p>Repeat Password: </p>
     <input type="password" name="password2" />
     <br>
-    <button class="full-width" type="submit">Submit</button>
+    <button class="btn full-width" type="submit">Submit</button>
   </form>
 {% endblock %}
