@@ -89,6 +89,12 @@ button.btn {
   transition: background-color 0.3s;
 }
 
+button.like-button {
+	font-size: 1.1em;
+	background: none;
+	border: none;
+}
+
 input,
 textarea,
 button.full-width {

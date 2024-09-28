@@ -26,7 +26,6 @@
       <div class="hours-layout">
 
         <h3>
-          Time spent:
           {% if post.hours > 0 %}
             {{ post.hours }} hour{{ post.hours|pluralize }}
             {% if post.minutes > 0 %} and {{ post.minutes }} minute{{ post.minutes|pluralize }}{% endif %}
@@ -40,7 +39,7 @@
         <form action="" method="POST">
           {% csrf_token %}
           <button class="like-button" type="submit" name="post-id" value="{{ post.id }}">
-            👍 {{ post.no_of_likes }}
+						👍 {{ post.no_of_likes }}
           </button>
 
         
