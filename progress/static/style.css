@@ -77,7 +77,7 @@ textarea:focus {
   border-color: #007bff;
 }
 
-button {
+button.btn {
   text-decoration: none;
   background-color: #007bff;
   color: #fff;
@@ -112,6 +112,12 @@ button.full-width {
   padding: 25px 40px;
   border-radius: 8px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.buttons-container {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Adds space between the buttons */
 }
 
 .row {
@@ -224,7 +230,7 @@ a.delete {
   background-color: #e74c3c;
 }
 
-a.delete:hover {
+.delete:hover {
   background-color: #c0392b;
 }
 

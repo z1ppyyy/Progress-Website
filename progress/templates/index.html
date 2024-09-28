@@ -36,20 +36,25 @@
         </h3>
         
     </a>
+			<div class="buttons-container">
         <form action="" method="POST">
           {% csrf_token %}
-          <button class="edit" type="submit" name="post-id" value="{{ post.id }}">{{ post.no_of_likes }} Like{{ post.no_of_likes|pluralize }}</button>
-        </form>
+          <button class="like-button" type="submit" name="post-id" value="{{ post.id }}">
+            👍 {{ post.no_of_likes }}
+          </button>
+
         
-        {% if requested == post.user %}
-          <div>
+					{% if requested == post.user %}
+
             <a class="delete" href="delete/{{ post.id }}">delete</a>
             <a class="edit" href="edit/{{ post.id }}">edit</a>
-          </div>
-        {% else %}
+						
+					{% else %}
       
-        {% endif %}
+					{% endif %}
+				</form>
       </div>
+		</div>
   </div>
 
   {% endfor %}

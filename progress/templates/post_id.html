@@ -27,14 +27,22 @@
         </h3>
         
     </a>
-        {% if requested == posts.user %}
-          <div>
-            <a class="delete" href="../delete/{{ posts.id }}">delete</a>
-            <a class="edit" href="../edit/{{ posts.id }}">edit</a>
-          </div>
-        {% else %}
+				<div class="buttons-container">
+					<form action="../" method="POST">
+						{% csrf_token %}
+						<button class="like-button" type="submit" name="post-id" value="{{ posts.id }}">
+              👍 {{ posts.no_of_likes }}
+            </button>
+		
+					  {% if requested == posts.user %}
+						  <a class="delete" href="../delete/{{ posts.id }}">delete</a>
+						  <a class="edit" href="../edit/{{ posts.id }}">edit</a>
+					  {% else %}
       
-        {% endif %}
-      </div>
-</div>
+					  {% endif %}
+				  </form>
+			</div>
+    </div>
+  </div>
 {% endblock %}
+
