@@ -38,8 +38,9 @@
     </a>
         <form action="" method="POST">
           {% csrf_token %}
-          <button class="edit" type="submit" name="post-id" value="{{ post.id }}">{{ post.no_of_likes }} Like</button>
+          <button class="edit" type="submit" name="post-id" value="{{ post.id }}">{{ post.no_of_likes }} Like{{ post.no_of_likes|pluralize }}</button>
         </form>
+        
         {% if requested == post.user %}
           <div>
             <a class="delete" href="delete/{{ post.id }}">delete</a>

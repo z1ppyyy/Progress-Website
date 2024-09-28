@@ -16,8 +16,9 @@ class Post(models.Model):
 
     def save(self, *args, **kwargs):
         # Automatically set title to "current date progress" before saving
-        current_date = date.today().strftime('%B %d')
-        self.title = f"{current_date} progress"
+        if not self.title:
+            current_date = date.today().strftime('%B %d')
+            self.title = f"{current_date} progress"
         super(Post, self).save(*args, **kwargs)
 
         # If it's saved, update the streak
